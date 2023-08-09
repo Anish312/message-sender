@@ -17,13 +17,17 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post('/api/send-email', async (req, res) => {
-    const { name, email, message } = req.body;
+    const { name, email, message ,contactNumber,societyName , societAddress, noOfMembers ,inquiryType} = req.body;
 
     const mailOptions = {
         from: 'ophelia.mitchell@ethereal.email', // Use your Ethereal Email address here
         to: 'anishgehlot11@gmail.com', // Use your actual recipient email address
         subject: 'New Contact Form Submission',
-        text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+        text: `Name: ${name}\nEmail: ${email}\nMessage: ${message} \nContactNumber: ${contactNumber} 
+        \nSociet yName: ${societAddress}
+        \nSociety Address: ${societAddress}
+        \nsNo.of Members: ${noOfMembers}
+        Role: ${inquiryType}` ,
     };
 
     try {
